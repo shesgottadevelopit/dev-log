@@ -1,0 +1,16 @@
+# on using .gitignore https://git-scm.com/docs/gitignore
+
+# Ignore everything in the following
+.*
+~*
+# _*
+
+# ignores these things in the src directory
+robots.txt
+.editorconfig
+
+# ignore OS generated files
+Thumbs.db
+
+# don't ignore .gitignore
+!.gitignore
