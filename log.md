@@ -36,7 +36,7 @@ sudo mount -a
 mount -l # lists out the mounted drives with their "metadata"
 ```
 
-Other important things worth noting: apparently, you're now able to access linux files from the Windows Explorer using this command in the HOME directory: `explorer.exe .`. And apparently you can manipulate the Linux files from Windows. Yes, my mind is blown now. More details (here)[https://www.thurrott.com/windows/windows-10/199652/windows-10s-file-explorer-will-soon-let-you-access-your-linux-subsystem-files]
+Other important things worth noting: apparently, you're now able to access linux files from the Windows Explorer using this command in the HOME directory: `explorer.exe .`. And apparently you can manipulate the Linux files from Windows. Yes, my mind is blown now. More details [here](https://www.thurrott.com/windows/windows-10/199652/windows-10s-file-explorer-will-soon-let-you-access-your-linux-subsystem-files)
 
 Anyway, what is next? I need to create a script that copies the file I have in my main library to a new location. 
 
@@ -65,7 +65,7 @@ Ok I'm giving vagrant a spin, for real this time.
 
 The issue I'm having right now is the `vagrant-hostsupdator` package won't install. I'm getting this error:  `timed out (https://gems.hashicorp.com/specs.4.8.gz)`
 
-Found some issues on GH related to it: https://github.com/hashicorp/vagrant/issues/8795 but nothing to help me work around the issue. Luckily this is optional. So I'll keep it moving. Picking up where I left off and following this (video)[https://www.youtube.com/watch?v=W6Yp9PO7mr0]...
+Found some issues on GH related to it: https://github.com/hashicorp/vagrant/issues/8795 but nothing to help me work around the issue. Luckily this is optional. So I'll keep it moving. Picking up where I left off and following this [video](https://www.youtube.com/watch?v=W6Yp9PO7mr0)...
 
 *What I already did:*
 - installed VirtualBox
