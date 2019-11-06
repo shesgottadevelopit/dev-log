@@ -6,10 +6,48 @@ _Log notes organized by date (most recent)_
 <details><summary>template for entries</summary>
 
 ## Entry No. 00x
-**Date: [insert dates]**
+**Day xx/xx/xxxx**
 
 </details>
 --->
+## Entry No. 009
+**Tuesday 11/5/2019**
+
+Backk to theming. I'm going to give Local by Flywheel a try... again. I'm using the Beta version for 5.something. I didn't know that this application was basically a Docker app, so that is pretty cool.
+
+That said, because it stores things in `/mnt/c/users/username` I decided to create a symlink to that directory in my regular project folder because I don't use my Windows home directory. 
+
+I used my own [tutorial](https://akudo.codes/2018/12/10/mklink-command-in-windows-ubuntu-wsl/) on creating cross-platform symlinks but ran into an issue when I tried to run my command using absolute paths.
+
+```bash
+
+pwd /mnt/c/myProjectFolder/localSites
+$ mklink localSites /users/myUserAccount/localSites
+
+```
+That command would result in a broken symlink that looked like this `localSites -> /mnt/c/mnt/c/users/myUserAccount/localSites`. Not sure why it kept adding an extra `/mnt/c`. So after almost an entire hour of debugging, I tried this instead: `mklink localSites /users/myUserAccount/localSites` and it finally worked. Not sure why that is though. 
+
+## Entry No. 008
+**Monday 11/4/2019**
+
+I decided to try out Local by Flywheel and I think I'm going to pass on that for now. Seems like it really makes things easier but having to store files in my Windows user directory is not the wave.
+
+So I need to resume my previous activity of watching a video tutorial on how to get up & running with Vagrant & VCCW with WSL. 
+
+Video: https://www.youtube.com/watch?v=W6Yp9PO7mr0
+
+I manually added these settings to my `.bashrc` file so I don't need to type the command in each time. Lets see if it actually works. 
+
+```bash
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/c/vvv" # this is modified home path because vagrant will fail if commands run in a directory is not the actual home directory
+```
+
+I think I'll try this again to set up the project I'm trying to set up.
+
+I'm going through the steps for setting up vagrant with the help of some scripts again. Will recap at some point. 
+
 ## Entry No. 007
 **Friday 11/1/2019**
 
