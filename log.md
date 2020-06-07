@@ -1,5 +1,5 @@
 # Activity Log: She's Gotta Develop It
-What am I making? 
+What am I making? What am I developing? What am I doing? 
 
 _Log notes organized by date (most recent)_
 <!---
@@ -10,6 +10,369 @@ _Log notes organized by date (most recent)_
 
 </details>
 --->
+
+## Entry No. 023
+**Saturday 06/06/2020**
+Haven't been doing the best job of documenting. As expected, the race to wrap up the major parts of these Genesis theme requires me to do alot of Googling, testing, and internal negotiating (mostly reminding myself that I don't need to the perfect solution, just a solution that works).
+
+Most of the theme is done. I have some styling things I will eventually fix but the main next thing requiring my attention would be the redesign of the static-ish homepage (It will have static content and then a listing of the most recent posts). And then I'll need to develop a strategy for redirecting pages to the newer domain. 
+
+Update:
+I did all the small styling fixes so my focus now is on how I'm able to design a hybrid static/dynamic homepage. The core features of the page will be:
+- requirement #1: a classic text editor block
+- requirement #2: a listing of my most recent 4-5 posts (or just 4-5 featured posts)
+- requirement #3: a listing of projects I've curated for display on the homepage. This should be optional. 
+
+**The only dynamic part should be the recent/featured posts.**
+
+As a result of my research, I've been able to cobble together what seems like a way to do what I want:
+- I'm able to just add blocks at the top of the page in the Admin dashboard so that satisfies requirement #1. 
+- This post describes out create the template page (e.g. `front-page.php`) and add a custom loop to satisfy requirement #2: https://www.abrightclearweb.com/a-custom-homepage-for-the-genesis-framework/. Of course I'll need to update the formatting for this and might start using template parts (e.g. https://wpshout.com/get-template-part/).
+  - This post is another solution for adding dynamic content to a static template: https://robincornett.com/custom-front-page/
+  - Other resources:
+    - https://carriedils.com/custom-page-template-genesis/
+    - https://www.netklik.com/wordpress/add-blog-posts-static-home-page-genesis-wordpress/
+- I now need to figure out how include a field in the `front-page.php` file that allows me to add blocks and/or additional copy below the custom loop.
+
+Something else I'm now realizing is that I might be able to fulfill this task more easily if I create a dynamic block for the "Recent Posts" and then just building a page with a bunch of different blocks. Hmmm. I'll return to this later:
+- https://riad.blog/2017/10/16/one-thousand-and-one-way-to-extend-gutenberg-today/
+- https://torquemag.io/2019/12/how-to-create-a-custom-wordpress-website-with-gutenberg-block/
+- https://torquemag.io/2019/05/create-gutenberg-block/
+- https://appsaloon.be/blog/how-to-build-a-dynamic-gutenberg-block-tutorial/
+- https://joeyfarruggio.com/wordpress/custom-post-loop-as-a-gutenberg-block/
+- https://www.billerickson.net/building-a-wordpress-theme-with-gutenberg/
+- https://www.nutsandboltsmedia.com/acf-genesis-landing-page/
+- https://developer.wordpress.org/block-editor/developers/block-api/block-templates/
+- https://wpshout.com/get-template-part/
+
+
+Also learned about block templates as part of my research: 
+- https://www.billerickson.net/gutenberg-block-templates/
+
+Once I sit my ass down, I get shit done. I'm actually surprised by how much I was able to get done in such a short period of time.
+
+## Entry No. 022
+**Wednesday 06/03/2020**
+My goal over the next 2-3 days is to finalize this design and launch this new site! Enough already. 
+
+What I worked on today:
+1. After hours of googling to better understand the differences between `return`, `sprintf`, and `printf` I figured out how to get my comments to render like this: **"15 comments on [insert name of post]"** . Slightly modified my original iheartcode markup to filter it. 
+2. Finished styling for individual posts & pages
+
+## Entry No. 021
+**Tuesday 04/13/2020**
+Today I struggled to figure out how to get the number of comments to appear below the blog post like so:  "15 comments on [insert name of post]"
+
+Will try again tommorrow, I'm spent. 
+
+
+## Entry No. 020
+**Tuesday 04/07/2020**
+An entire month. Alot has happened since my last updates... like coronavirus. But I'm back like I never left.
+
+I updated my project board breaking out tasks I need to complete to get my theme in tip-top shape. Today I'll focus on:
+- defining variables in my stylesheet (colors & font sizes)
+- exporting my logo as SVG for the web
+- styling the individual post page
+- figure out how to move my "post-meta" into the "entry-header"
+
+### Tips for optimizing SVG for web:
+
+- Select Objects -> Artboards -> Fit Artboard to Bounds
+- Profile: SVG 1.1
+- Type: Convert to outline – This makes sure that any text used is converted to shapes.
+- Image location: Embed – If you are including bitmap images (probably not), they will be included in the file, rather than linked to separate files.
+- Decimals: This is the level of precision. You may want to set to 2 or 1 decimals (default 3) to decrease the file size.
+- Keep “Compressed” and “Optimized for Adobe SVG Viewer” unchecked (Visible in main “Save for Web” export menu in Adobe CS3).
+*source: https://joshuawinn.com/svg-export-settings-for-the-web-with-adobe-illustrator/
+
+Other resources:
+- https://medium.com/@colinlord/how-to-export-svgs-for-the-web-from-illustrator-829bc1c841f6
+- https://css-tricks.com/snippets/svg/abobe-illustrator-export-options/
+- 
+
+
+## Entry No. 019
+**Friday 03/06/2020**
+My todo list is slightly different than what I had before but that is fine, I'm tracking it in the theme folder anyway. 
+
+Today I focused on 
+1. adding support for the ACF field I use for subtitles
+2. figuring out how to make sure my theme uses the original WordPress category/tag descriptions instead of the Genesis one
+3. adding class names to existing elements using Genesis filters and Genesis attributes (e.g. genesis_attr_footer-widget-areas), very handy for the footers I finally got around to
+4. removed support for structural wraps throughout the theme... realized I don't need it
+5. removed support for some of the layouts (this is a full-width site) and sidebars/widgets
+
+One major lingering data structure thing I need to figure out is appending "Category:" or "Tag:" to my archive page when users navigate to those taxonomy pages. It works fine on monthly archive pages. So once I figure that out, I think I'll be able to move on to the actual styling part because right now, everything is right where I want it to be. 
+
+Of course at some point I'm going to need to design this new homepage, since the blog will no longer be at the root of the site. 
+
+Exciting progress! I think I'm going to give myself a break for the weekend. 
+
+## Entry No. 018
+**Thursday 03/05/2020**
+So just to recap last night's success: I now have two ways of modifying markup. Of course the version I outlined below is more ideal to me because I can read the code and it makes sense. The other option (from Bill Erickson) I'm not entirely sure how to read it. But both of them work. So in my theme I've got the entry header all fixed up. Now time to move on to the entry footer. 
+
+Things left to do:
+- [ ] fix formatting for the post pagination
+- [ ] fix the styling for the header
+- [ ] fix the styling for the widgets
+- [ ] fix the styling for the footer
+- [ ] fix the styling for the posts
+- [ ] style archive pages
+- [ ] design a homepage
+- [ ] add acf to theme & figure out how to reapply that
+
+## Entry No. 017
+**Wednesday 03/04/2020**
+I never got a chance to update the log last night when I wrapped up but I'm so excited to share my updates. So in process of trying to recreate my existing them in Genesis, I realized I didn't have as much control with styling and repositioning things like the `genesis_post_meta` which includes categories & tags and `genesis_post_info` which includes the post date, author link, etc.
+
+Genesis uses shortcodes which makes formatting that kind of thing easier, but it comes with the default Genesis markup. This isn't normally an issue but in my theme the entry header is structured like this:
+
+```
+category 1 | date
+entry title
+tag1 tag2 tag3
+edit link (when the admin is logged in)
+```
+
+This layout splits up the `post_info` (e.g. the date and edit link) and it also separates the `post_meta` (e.g. the categories and tags). I had to use a number of hooks to get this ordered just the way I want. 
+
+One side effect of this **reordering** is that Genesis automatically wraps the content in an element with a particular CSS class name, in this case it is a paragraph tag with `entry-meta` as the class. This isn't a big issue but that class appears twice in the page (with the category & date and then further down with the tag and edit link) and there might be some clashing with the design if they're both grouped under the same class name. There could be other side effects, but I don't what they'd be yet. I sometimes even noticed times when an empty paragraph tag would appear below the actual `post-meta` content. Also not a big issue but I just don't want random elements scattered through my markup. So I was trying to figure out a way to customize the wrapper element that is automatically generated when `genesis_post_meta` is rendered on the page. 
+
+After lots of "Google-ing" I figured out a way to do it through the Genesis Markup API, but first I needed to know how to use the API and finding documentation on that was a challenge. The closest thing I could find for that was [this article](https://wpbeaches.com/changing-the-genesis-header-html-output/), so I tried my hand at doing something similar but for a different segment of the entry and it finally worked! My one big win of the day.
+
+Using the Genesis Markup API means I need to find the original code that is used to generate something like `genesis_post_meta` and copy that into my `functions.php` file and then make modifications as needed. I would of course need to remove the original hook and then add a new hook with this newer function with my custom code. 
+
+The code for `genesis_post_meta` appears in the `post.php` file inside the Genesis Framework (`lib > structure > post.php`).
+
+Here's the before in `post.php`:
+```php
+function genesis_post_meta() {
+
+	if ( ! post_type_supports( get_post_type(), 'genesis-entry-meta-after-content' ) ) {
+		return;
+	}
+
+	$post_meta = wp_kses_post( genesis_get_option( 'entry_meta_after_content' ) );
+	$filtered  = apply_filters( 'genesis_post_meta', $post_meta );
+
+	if ( '' === trim( $filtered ) ) {
+		return;
+	}
+
+	genesis_markup(
+		[
+			'open'    => '<p %s>',
+			'close'   => '</p>',
+			'content' => genesis_strip_p_tags( $filtered ),
+			'context' => 'entry-meta-after-content',
+		]
+	);
+
+}
+```
+
+And here is the after that I'll store in my `functions.php`:
+
+```php
+function customized_genesis_post_meta() {
+
+	if ( ! post_type_supports( get_post_type(), 'genesis-entry-meta-after-content' ) ) {
+		return;
+	}
+
+	$post_meta = wp_kses_post( genesis_get_option( 'entry_meta_after_content' ) );
+	$filtered  = apply_filters( 'genesis_post_meta', $post_meta );
+
+	if ( '' === trim( $filtered ) ) {
+		return;
+	}
+	genesis_markup( array (
+
+			'open'    => '<div class="my-class">', // this is the only line I've modified
+			'close'   => '</div>',
+			'content' => genesis_strip_p_tags( $filtered ),
+			'context' => 'entry-meta-after-content',
+
+	) );
+
+}
+
+/**
+* And these are the hooks I activate in the theme to make this all work the way I want
+*/
+
+remove_action('genesis_entry_footer', 'genesis_post_meta');
+add_action( 'genesis_entry_header', 'customized_genesis_post_meta', 10);
+```
+
+As a result of all of this "Google-ing" I also had to become acquainted with some other WordPress things like the `do_shortcode()` [function](https://developer.wordpress.org/reference/functions/do_shortcode/).
+
+I never got a chance to try another idea I had, but it would involve using a Genesis filter to replace the `.entry-meta` class with one of my choice using a function like this:
+
+```php
+function replace_class_name( $attributes ) {
+	$attributes['class'] = 'my-meta';
+	return $attributes;
+  }
+  add_filter( 'genesis_attr_entry-meta-before-content', 'replace_class_name' );
+```
+
+Some resources:
+- https://www.billerickson.net/code/genesis-post-info-markup/ (This also works exactly how I'd need it to but I hadn't tried it yet)
+- https://wpbeaches.com/adding-attribute-html-section-genesis/
+- https://www.jeanphilippemarchand.com/code/add-custom-class-html-elements-genesis/
+- https://designody.com/genesis-attributes/
+- https://gist.github.com/inetbiz/0eba8d4af82a880fceb13f086dcb03b7#file-markup-php-L159
+
+
+The feeling I get when I solve a problem, **chef's kiss**.
+
+
+## Entry No. 016
+**Tuesday 03/03/2020**
+Still working on recreating my theme for `akudo.codes` using Genesis. The layout won't change much, I might actually add some new layouts and a "front page/home page". The color palette will definitely be updated. 
+
+
+## Entry No. 015
+**Monday 03/02/2020**
+Today I'm working on branding for my site and also still toying around with fonts.
+
+I'll also start porting over some legacy styles into my new Genesis stylesheet, things I know I'll want to maintain in my new theme. 
+
+Examples include:
+
+```scss
+// existing theme --> genesis theme
+.site-page --> .site-container
+.masthead .full-width-bar --> .site-header
+.all-content --> .site-inner
+.site-content --> .content
+.site-widgets --> .sidebar .sidebar-primary .widget-area
+.site-footer .full-width-bar --> .site-footer
+.article-header --> .entry-header
+.article-title --> .entry-title
+.article-meta --> .entry-meta
+.article-content --> .entry-content
+no footer class --> .entry-footer // use for pagination on single posts
+.navigation .post-navigation -->
+.post-comments --> .entry-comments
+
+```
+
+## Entry No. 014
+**Friday 02/27/2020**
+One of my projects uses a custom font so I'm learning for the first time how to properly use the `font-face` property. I've always used Google Fonts so this is a new beast that will take some figuring out. 
+
+Learned I can use the [FontSquirrel](https://www.fontsquirrel.com/tools/webfont-generator) service to convert my **legal** font to the `woff` format and it also generates a `.css` file. Very cool. 
+
+## Entry No. 013
+**Thursday 02/26/2020**
+I started playing around with Genesis hooks and filters, read up on some of the documentation and just dived in. Some things I tried out:
+- moving the post info (date, time, byline, comments,etc) to a different location on the page, above the post title
+- making the change listed above only appear on single posts and not the general loop
+- adding post navigation (not the same as post navigation for the entire site)
+
+Also learned that with Genesis 3.something you're able to move the post info (or post meta) using shortcodes directly in the WordPress Customizer, which is cool.
+
+But I'm still figuring out shit.
+
+## Entry No. 012
+**Wednesday 02/25/2020**
+I need to do a better job of using this log because it doesn't just keep me accountable but it is a good way to remind myself I'm making progress, small steps, but steps nonetheless.
+
+I've been learning how to use the Genesis WordPress framework and have been doing a mixture of coding/experimenting and environment setup.
+
+Yesterday I needed to figure out how to use a plugin to find/replace entries in the database I'm planning to import into one of my staging sites.
+
+Today, more site setup and creating a new directory for this particular project. Plan is to move `akudo.codes` to `shesgottadevelopit.com`. That will require some redirects and database migration. I'm also doing a theme refresh as a part of it.
+
+Other than that, here are the goals I had for Q1 of this year:
+- [x] Learn about and how to build child themes with the Genesis framework 
+- [x] Learn about and how to use Wordpress Gutenberg
+- [ ] Learn about the AWS Cloud Practitioner exam and decide if I want to take it
+- [ ] Learn how to deploy a small project on AWS
+- [ ] Build a small app with React
+
+I've made progress so far and I'm happy about that :-).
+
+## Entry No. 011
+**Tuesday 01/14/2020**
+I'm conducting tests to make updates on a post on my site that has gotten a few comments/questions/concerns. Here is the [original post](https://akudo.codes/2018/12/10/mklink-command-in-windows-ubuntu-wsl).
+
+I'll need to update this post because I've been using this script since the earliest iterations of Windows Bash.
+
+**Project Folder Hierarchy**
+The `target` directory is located here on my computer: /mnt/c/projects/mklink-test/target
+```
+├── c
+|	├── projects
+|	│   ├── mklink-test
+|	|	│   ├── target
+|	|	│   │   ├── readme.md
+|	|	│   │   └── testing.txt
+|	├── newProjects
+|	│   ├── mklink-test-2
+```
+And the creation of the symlink will result in this updated directory tree:
+
+```
+├── c
+|	├── projects
+|	│   ├── mklink-test
+|	|	│   ├── target
+|	|	│   │   ├── readme.md
+|	|	│   │   └── testing.txt
+|	|	│   ├── ***newSymlink
+|	|	│   │   ├── readme.md
+|	|	│   │   └── testing.txt
+|	├── newProjects
+|	│   ├── mklink-test-2
+|	|	│   ├── ***newSymlink
+|	|	│   │   ├── readme.md
+|	|	│   │   └── testing.txt
+```
+### Here is what I learned
+
+**pwd is inside of WSL directories**
+If you're in your WSL home directory (e.g. the pwd is `\\wsl$\Ubuntu\home\badgalriri`), and you're attempting to create a symlink from a target directory on Windows, you can create a symlink using an absolute path:
+`mklink /projects/mklink-test/symlink1 /projects/mklink-test/target`
+FYI: You need to omit the `/mnt/c` part of the path.
+
+**pwd is inside of your WSL symlink**
+If you're like me and have linux symlinks created using this command (`ln -s /mnt/c/projects/ myProjects`) and which results in a directory listing like: `myProjects -> /mnt/c/projects`, then when your pwd is `~/myProjects`, you can use relative paths:
+```bash
+mklink mklink-test/symlink2 mklink-test/target
+```
+
+**pwd is inside of a Windows directory**
+If you're in a Windows directory (e.g., the pwd is somewhere in `/mnt/c` or `/mnt/c/projects` or `/mnt/c/Users/Rihanna/`), you can create a symlink using an absolute path or a relative path (if you're in the directory) using one of the following commands. 
+
+```bash
+## Absolute Path from pwd /mnt/c
+mklink projects/mklink-test/symlink3 projects/mklink-test/target
+
+## Relative Path from pwd /mnt/c/projects
+mklink mklink-test/symlink4 mklink-test/target
+
+## Relative Path from pwd /mnt/c/projects to a completely different directory referenced by the absolute path
+mklink /newProjects/mklink-test-2/symlink5 mklink-test/target # note that the link path is Absolute here
+
+```
+
+**Key changes**: I'm using a modified `mklink.sh` file which is referenced here: 
+All of these edits are reflected in my [post](https://gist.github.com/shesgottadevelopit/84c6bb230e6128aea4fb13fc8c79b93a).
+
+
+## Entry No. 010
+**Tuesday 11/19/2019**
+Whewww I took a little bit of a break and have not been updating my log.
+
+Decided to sort of pivot and work on setting up some automation with Slack, Trello, Google Drive, and maybe some other apps. 
+
+That's the update :-). 
+
 ## Entry No. 009
 **Tuesday 11/5/2019**
 
