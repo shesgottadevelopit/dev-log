@@ -1,5 +1,5 @@
 # Activity Log: She's Gotta Develop It
-What am I making? What am I developing? What am I doing? 
+What am I making? What am I developing? What am I doing? Stream of consciousness notetaking/coding/whatyamajiggy
 
 _Log notes organized by date (most recent)_
 <!---
@@ -10,6 +10,101 @@ _Log notes organized by date (most recent)_
 
 </details>
 --->
+## Entry No. 028
+**Saturday 07/11/2020**
+Whewwww what a journey! [She's Gotta Develop It](https://shesgottadevelopit.com) is live now! I got an MVP up and of course there are things to fix but I need to remind myself it does not **have** to be perfect. Can't believe this all started in February 2020. I set up all of the appropriate redirects from the older site. I'm happy I got that done now I can move on to my other projects. My goal moving forward to is to reduce the amount of time it takes for me to turnaround one of these "custom" builds. 
+
+I sitll need to prune content on this site & create some new content. I'll also create a post covering my experience creating a Genesis theme from scratch. 
+
+## Entry No. 027
+**Saturday 06/20/2020**
+I think I have a fully functional version that is ready for the world. I worked on this earlier in the week and really got myself stuck trying to fix something that didn't even matter (the Edit link - which you can only see when you're logged in). I guess I can get around to it later but I had to level with myself and keep it moving. 
+
+I need to now figure out how to package my block plugin & do all the testing and then set up redirects. 
+
+**Pats self on back**
+
+## Entry No. 026
+**Sunday 06/15/2020**
+Mission Accomplished! I finally figured out how to create a Latest Posts block with WordPress Gutenberg. My block plugin renders the most recent 5 posts. There are things I want to improve on:
+- [ ] add the option to modify the number of posts that are included
+- [ ] possibily text editing features
+- [ ] apply frontend styles to the backend (in general this is a to-do item)
+
+So proud of myself! I'm definitely going to hunker down and learn React this summer but I was able to piece together something that works using the following resources:
+- This video tutorial covered how to create a dynamic block that lists the recent posts titles only: https://www.youtube.com/watch?v=XkjrrLR0Y3E&t=1216s
+- This video was reinforcement and demonstrated another way of interacting with content via the WP REST API: https://www.youtube.com/watch?v=sYHYTk0jeE8
+- This page helped me figure out how to render content without tags/markup showing on the backend: https://developer.wordpress.org/block-editor/developers/richtext/#html-formatting-tags-display-in-the-content
+- Reference: https://www.billerickson.net/building-gutenberg-block/
+- Reference: https://medium.com/@eudestwt/how-to-make-a-dynamic-wordpress-gutenberg-block-with-server-side-rending-3cb0dd6744ed
+- Covers two ways of building Gutenberg blocks: https://jasonbahl.com/2018/11/15/two-ways-to-build-gutenberg-blocks/
+- Simple Gist: https://gist.github.com/Shelob9/144055408101e2fdfc4bf34adc85dd04
+
+
+Also, this is the path to the json file with post info from the WordPress REST API: `/wp-json/wp/v2/posts`, just append that to your domain/url. More info is [here](https://developer.wordpress.org/rest-api/reference/)
+
+Links to check out later:
+- https://markcormack.co.uk/getting-gutenberg-how-im-using-wordpress-new-editor/
+- https://johnblackbourn.com/gutenberg-block-template-part/
+- 
+
+
+Other things: I might change the width of my site container to 750px.
+
+What's left to do with `front-page.php` is styling the blocks & other content.
+
+Mission Accomplished!
+
+
+## Entry No. 025
+**Sunday 06/14/2020**
+Ok so I'm finally going to try and create a gutenberg block, so I'll be following along with a couple of tutorials.
+
+1. Installed `create-guten-block` globally and following the instructions in the documentation for setting up the block.
+2. I activated the gutenberg block plugin in my admin dashboard and viewed a page to test whether it was active (it was!)
+3. For this exercise, I'm going to use `front-page.php` since that is the page I'm creating this block for (although it can be used on other pages)
+4. All of the work I'll be doing will be done on files withing the `src` directory. According to this [CSSTricks.com article](https://css-tricks.com/learning-gutenberg-3-primer-with-create-guten-block/),
+these are the key files within the block directory that:
+
+> block/block.js — All the JavaScript for the individual block.
+> block/editor.scss — Sass partial for styles specific to the editor view,
+> block/style.scss — Sass partial for styles specific to the front-end view, i.e. what you see when you view your page/post.
+
+Ok, so as far as I got today was creating the block and rendering it. I haven't figured out how to use the API yet but next time.
+
+
+## Entry No. 024
+**Wednesday 06/09/2020**
+Started a new job this week so haven't had as much time to return to this. I'm going to work on gaining a better understanding of how blocks work in Gutenberg/WordPress. This [key concepts](https://developer.wordpress.org/block-editor/principles/key-concepts/) page is a great starting point. 
+
+### Static vs dynamic
+> Blocks can be static or dynamic. Static blocks contain rendered content and an object of Attributes used to re-render based on changes. Dynamic blocks require server-side data and rendering while the post content is being generated (rendering).
+> Each block contains Attributes or configuration settings, which can be sourced from raw HTML in the content via meta or other customizable origins.
+
+### Reusable blocks
+> Reusable blocks are a way to share a block (or multiple blocks) as a reusable, repeatable piece of content.
+> Any edits to a reusable block are made to every usage of that repeatable block.
+> **Reusable blocks are stored as a hidden post type** and are dynamic blocks that “ref” or reference the post_id and return the post_content for that wp_block.
+
+I'll also follow along with the tutorial on this page: https://developer.wordpress.org/block-editor/tutorials/block-tutorial/
+
+This tutorial also explains why the `create-guten-block` is helpful: https://www.angelleye.com/gutenberg-wordpress-tutorial-build-custom-block/
+
+
+Videos I found that I'll revisit
+- Video 1: https://www.youtube.com/watch?v=sYHYTk0jeE8 __this was easy to follow and explained why the `create-guten-block` app would be helpful__
+- Video 2: https://www.youtube.com/watch?v=2CGFLwSoDbY (and the accompanying playlist: https://www.youtube.com/playlist?list=PLriKzYyLb28lHhftzU7Z_DJ32mvLy4KKH)
+- Video 3: https://www.youtube.com/watch?v=XkjrrLR0Y3E
+- Video 4: https://www.youtube.com/watch?v=vxxHoEqxjKE
+
+
+Other resources: 
+- https://www.advancedcustomfields.com/blog/the-state-of-acf-in-a-gutenberg-world/
+- https://webdevstudios.com/2019/10/24/advanced-custom-fields-gutenberg-wd_s/
+- https://awhitepixel.com/blog/wordpress-gutenberg-create-custom-block-part-9-dynamic-blocks-php-render/
+- https://github.com/WordPress/gutenberg/tree/master/packages/block-library/src/latest-posts
+
+
 
 ## Entry No. 023
 **Saturday 06/06/2020**
