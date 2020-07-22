@@ -10,6 +10,52 @@ _Log notes organized by date (most recent)_
 
 </details>
 --->
+## Entry No. 032
+**Tuesday 7/21/2020**
+Soooooooo, I'm pretty sure I did some work on "Lemons" on Friday but didn't bother adding it to the log, my bad.
+
+Today, I decided to update my Maintenance Mode plugin & theme template. The way it currently works is:
+- The plugin checks if the theme has a `maintenance.php` file and if it does it renders it
+- If it doesn't, it checks the plugin directory to see if it has a maintenance.php file
+- If the plugin doesn't it renders a simple message.
+
+Today I added an option that allows me to build out the content & messaging for the Maintenance Mode page like I would on every page. As I'm typing this, I realize I could probably add this to the plugin, so it it works out-of-the-box. I think I might do that too but would need to figure out how to pull in all of the regular theme assets. 
+
+Proud of myself. It is 11:14p right now and I've been working on this since about 6pm (I've done other things but mostly this). 
+
+I love solving a problem. 
+
+## Entry No. 031
+**Thursday 07/16/2020**
+I was able to consolidate all of my starter themes into a single one that I'm calling "Lemons".
+
+Next I will:
+- make any updates pulling in changes from the master _s theme
+- look into incorporating the Theme Alliance Hooks feature
+- update CSS to make it cleaner, pulling in items from my Genesis Starter and other more final custom themes. I'll also see what might be the easiest way to incorporate newer layout themes that utilize grid & flexbox. Your girl is still with the floats. 
+
+Yesterday I spent more time than I'd like to admit trying to copy over a local database into a new WP install. I figured it out early this morning. No more installs until I have to. But I did it this time because it guaranteed I'd be working with the same set of test content instead of having to reimport it all over again. 
+
+## Entry No. 030
+**Wednesday 07/15/2020**
+Today I installed those essential plugins and I'm going to try and do a quick clean up. I have like 5 different boilerplate theme versions and I need to figure out what is the most updated, get rid of the others and use that as my baseline.
+
+## Entry No. 029
+**Tuesday 07/14/2020**
+Soooo on to the next project. This is sort of a mini-admin project. I'm basically going to update my boilerplate WP theme, pulling in new stuff from the WP Underscores theme. 
+
+Later I might also refine my Genesis boilerplate theme called Eve.
+
+In order to do this, I'm doing a few things, mostly optional:
+- create new Wordpress instance in WAMP (install the software & setup the database)
+- set up a virtual host
+- upload test content from 3 different sources
+
+Next I'll need to
+- Update the content so it aligns with the theme I'm planning to develop
+- Create additional pages
+- Install essential plugins
+
 ## Entry No. 028
 **Saturday 07/11/2020**
 Whewwww what a journey! [She's Gotta Develop It](https://shesgottadevelopit.com) is live now! I got an MVP up and of course there are things to fix but I need to remind myself it does not **have** to be perfect. Can't believe this all started in February 2020. I set up all of the appropriate redirects from the older site. I'm happy I got that done now I can move on to my other projects. My goal moving forward to is to reduce the amount of time it takes for me to turnaround one of these "custom" builds. 
