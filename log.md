@@ -10,6 +10,57 @@ _Log notes organized by date (most recent)_
 
 </details>
 --->
+
+## Entry No.34
+**Thursday 7/23/2020**
+I solved that problem! I should stop while I'm ahead.
+
+I wanted to find a way to add the template class to my template but somehow modify the template class slug to make it easier for me to target it with CSS.
+
+I figured out that in order to match different strings, I need to use the `prep_replace` methods more than once. Here is what I did:
+```php
+<?php
+/**
+ * Template Functions & Tags
+ * Eventually, some of the functionality here could be replaced by core features.
+ * @package lemons
+ */
+function lemons_template_class($template_class) {
+	$sanitized = preg_replace( '~page-templates/~', '', $template_class );
+	$sanitized = preg_replace( '~php~', '', $sanitized);
+	$sanitized = preg_replace( '/[^A-Za-z0-9_-]/', '', $sanitized );
+	$sanitized = $sanitized.'-template';
+
+	return $sanitized; 
+}
+
+// And in my template it looks something like this: 
+<div id="primary" class="content-area <?php echo esc_html(lemons_template_class( get_page_template_slug( $post->ID )));?>">
+
+// Which outputs something like this:
+<div id="primary" class="content-area single-column-template">
+```
+
+All of this thanks to a number of resources:
+- https://www.php.net/manual/en/function.preg-replace.php 
+- https://www.w3schools.com/php/func_regex_preg_replace.asp
+- https://www.tutorialrepublic.com/php-tutorial/php-regular-expressions.php
+- https://developer.wordpress.org/reference/functions/sanitize_html_class/
+
+Today I also added some CSS Gutenberg files
+
+## Entry No. 033
+**Wednesday 7/22/2020**
+Today was very productive also.
+
+RE: Lemons Starter Theme, I:
+- Included a file that added theme support for Gutenberg features
+- Learned how to create Page Templates (which I apparently used with Genesis). I didn't know it was something I could do myself :-)
+- While creating new page templates, I decided to explore how to apply various CSS styles to each template and settled on the `get_page_template_slug()` function which would allow me to insert that page template class at various points in the markup. But I realized the santization of the page template slug name wasn't working how I want soooo....
+
+**Next problem to solve:**
+I am going to create a function (might be a filter or a function with a filter) and it will find & replace some of those character in the original page template slug first using a PHP method and then I'll run it through the WordPress `santize_html` function. And find a way to insert this function into my markup, 
+
 ## Entry No. 032
 **Tuesday 7/21/2020**
 Soooooooo, I'm pretty sure I did some work on "Lemons" on Friday but didn't bother adding it to the log, my bad.

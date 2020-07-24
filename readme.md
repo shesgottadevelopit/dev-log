@@ -4,3 +4,4 @@ This is a log where I track my development activities. It is a nice way to revis
 
 I've used this style of tracking before, with my [static site generator exercise](https://github.com/shesgottadevelopit/sans-static).
 
+The actual log can be found [here in `log.md`](log.md).
