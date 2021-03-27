@@ -10,6 +10,182 @@ _Log notes organized by date (most recent)_
 
 </details>
 --->
+## Entry No. 40
+**Saturday 3/27/2021**
+Just me over here checking my log to see the last thing I did. I can't believe it was in August! That seems like it was too long ago, I'd think like October, but damn! Well bitch I'm back for the millionth time. 
+
+## Entry No. 39
+**Tuesday 8/18/2020**
+Long time.... I'm still working on stuff, mostly using my Freedcamp board to track but wanted to document this _breakthrough_. 
+
+Was trying to add a WP body class to the editor screen and needed to be able to target specific post meta. I figured out how to do that using this to render/see what options were available through `get_post_meta`.
+
+```php
+
+$thing1 = get_post_meta($post->ID);
+print_r($thing1);
+
+// returns something like
+// >> Array ( [_edit_lock] => Array ( [0] => 1597802336:1 ) [_wp_old_slug] => Array ( [0] => block-image [1] => block-image-2 ) [_wp_page_template] => Array ( [0] => page-templates/sidebar-content.php ) [_edit_last] => Array ( [0] => 1 ) ) 
+
+```
+
+This works soooo much better than `is_page_template()` which returns as true for everything in the admin dashboard. 
+
+The reason I decided to do this is to match the styling from the frontend with the back. 
+
+Unrelated, last week I was able to learn more about styling Gutenberg blocks but then towards the end got sidetracked by a nasty sass compilation issue, partially my fault - ha!
+
+## Entry No. 38
+**Tuesday 8/11/2020**
+I have consistently been working on Lemons and today I had a breakthrough! I'm mostly checking things off on a Freedcamp board I use and sometimes a `readme.md` todo list. This is what I've done so far:
+- fixed the clickable navigation on the site (had to go alll the way back to Mor10.com's Popper theme which I modeled this after - I took his course years ago). I had to retrace my steps because something was acting funky.
+- cleaned up the comments styling. I just wanted to get it to a point that it looks decent out-of-the-box. So I didn't really add extra styling
+- updated the media queries
+- converted the top navigation to use the flex model (from _s) and made it work with the clickable navigation javascript file
+- added some theme alliance hooks
+
+I did a bunch of other stuff. The starter theme is still bare looking BUT.... out of the box, it's still beautiful. What I have left is to figure out how to create a baseline for Gutenberg styles and how to implement Gutenberg editor styles.
+
+Yay!
+
+Once that is complete then I'll move on to my next project: top secret. 
+
+## Entry No. 37
+**Saturday 8/9/2020**
+
+Just adding this here since I did a refresher on media queries
+
+**About Media Queries**
+
+Basic Syntax: 
+```scss
+@media media-type and (media-feature-rule) {
+  /* CSS rules go here */
+}
+```
+
+- A **media type**, which tells the browser what kind of media this code is for (e.g. print, or screen).
+- A **media expression**, which is a rule, or test that must be passed for the contained CSS to be applied.
+- A **set of CSS rules** that will be applied if the test passes and the media type is correct.
+    
+```scss
+// Example using screen media type
+@media screen and (max-width: 400px){
+    // insert rules
+}
+
+// Media type is optional so it can appear as 
+@media and (max-width: 400px){
+    // insert rules
+}
+
+// Orientation feature can be added
+@media (orientation: landscape) {
+    // insert rules
+}
+
+// Hover feature can also be added
+@media (hover: hover) {
+    body {
+        color: rebeccapurple;
+    }
+}
+```
+
+## Entry No.36
+**Tuesday 8/4/2020**
+Taking a break from Wordpress to learn more about SSH.
+
+BTW, I'm struggling with some CSS Grid stuff but I'll get back to it.
+
+SSH will allow me to access my server right from my desktop. From my desktop I can run commands, remotely. This is relevant now because I've been leveling up on AWS and the Cloud Guru curriculum instructs users to set up SSH via PuTTY but then I realized I could probbably use WSL and then decided to get more clarity around SSH so here we are.
+
+SSH is Secure Shell. How does it work:
+1. Via your CLI a connect with the server is initiated
+2. The server sends a public key
+3. The CLI client & the server exchange & confirm credentials
+
+My source: https://torquemag.io/2020/07/ssh-beginners-guide/
+>  Your site’s host computer runs an SSH server that waits for requests. You can connect to it using an SSH client on your PC, if you know the address of the server. With a username and password, the connection opens and you’re free to type in terminal commands.
+
+SSH differs from the FTPs (FTP/FTPS/SFTP) in they're typically used for file transferring. "SFTP is generally considered more secure than FTPS or FTP over SSH."
+
+You're only able to use it when you're host gives you permission. Typically shared hosting plans don't allow it. 
+
+In the absence of managed hosting, OpenSSH can be installed. And that is what I'm going to install on WSL.
+
+Using linux:
+```bash
+
+ssh <username@hostname.com> -p 23 ## only add the port if not connecting over the default which is 22
+
+## type in this to see if it works
+ssh
+
+### What is generated is typically:
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]
+           [-F configfile] [-I pkcs11] [-i identity_file]
+           [-J [user@]host[:port]] [-L address] [-l login_name] [-m mac_spec]
+           [-O ctl_cmd] [-o option] [-p port] [-Q query_option] [-R address]
+           [-S ctl_path] [-W host:port] [-w local_tun[:remote_tun]]
+           [user@]hostname [command]
+```
+
+More linux commands:
+- http://www.sshcommands.co.uk/
+- https://ubuntu.com/tutorials/command-line-for-beginners#5-moving-and-manipulating-files
+
+
+### Relevant Commands
+
+```bash
+
+pwd ##  Show the path to the folder you’re at now.
+touch ##  Create a new file.
+rm ##  Remove a file.
+cat ##  Show the contents of a file.
+head ##  Read the first ten lines of a file.
+tail ##  Read the last ten lines of a file.
+du ##  Show the size of a file.
+cp ##  Copy a file or folder.
+mv ## Move a file or folder.
+zip ##  Compress a file or folder.
+unzip ##  Extract a compressed file or folder.
+find ##  Search for files and folders.
+grep ##  Search for a phrase inside files and folders.
+wget ##  Download a file from the Internet onto the server.
+scp ##  Copy a file to your computer.
+vim/nano ##  Edit a file using either the Vim or Nano text editor.
+clear ##  Clear the terminal.
+history ##  Show the last 50 commands you used.
+exit ##  Close the connection.
+```
+
+WP-CLI commands: https://developer.wordpress.org/cli/commands/
+
+
+## Entry No.35
+**Thursday 7/30/2020**
+I've been great on momentum lately.
+
+I've mostly spent quite a bit of time trying update my local dev environment (WAMP). I'm launching a new project (top secret shit) and I'm also getting the actual production environment ready. I'll be using my Lemons Theme Starter as the base for that project.
+
+Tonight I worked on my Maintenance Mode Plugin. I decided I wanted to create an "options" page in the Admin dashboard that will allow users to determine if they want to add the header, sidebar, or footer to the template that is built into the plugin. If they use their own `maintenance.php` file, this options page won't affect their theme at all, I actually just added a conditional statement that means the Options page should not even appear but I think I'll update that. 
+
+I'm so proud of myself! 
+
+This part of the project is brought to you by: 
+- https://rudrastyh.com/wordpress/creating-options-pages.html
+- https://developer.wordpress.org/reference/functions/add_options_page/
+- https://codex.wordpress.org/Creating_Options_Pages
+
+What is left:
+- [ ] Figure out how to add the `Maintenance Mode` page to the site if it doesn't exist. (https://developer.wordpress.org/reference/functions/wp_insert_post/ and https://stackoverflow.com/questions/36975658/creating-pages-when-activating-plugin-wordpress)
+- [ ] Figuring out my strategy for the options page when a user creates their own `maintenance.php` file
+- [ ] Figuring out if there is a way to move these options to the actual page
+- [ ] Figuring out a way to include some of the active theme's styling even if the header is not applied (maybe even separating the navigation)
 
 ## Entry No.34
 **Thursday 7/23/2020**
